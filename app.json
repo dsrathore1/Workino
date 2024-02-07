@@ -1,9 +1,9 @@
 {
   "expo": {
     "name": "Workino",
-    "slug": "Workino",
+    "slug": "workino",
     "version": "1.0.0",
-    "scheme": "Workino",
+    "scheme": "workino",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -16,19 +16,30 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wefarmous.workino"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.wefarmous.workino"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9ca8d465-c95f-47c9-9215-ba00c95c532e"
+      }
+    },
+    "owner": "dsrathore1"
   }
 }

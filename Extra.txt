@@ -1,0 +1,5 @@
+# Router app Entry
+"main": "expo-router/entry"
+
+# Main Entry point
+"main": "node_modules/expo/AppEntry.js",

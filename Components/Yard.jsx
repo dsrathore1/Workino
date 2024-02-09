@@ -1,43 +1,71 @@
 import React from 'react'
-// import Leaf from "../assets/leaf.jpg"
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ImageBackground, Pressable } from 'react-native';
+import { useRouter } from "expo-router";
+
+const image1 = { uri: "https://images.unsplash.com/photo-1572085313466-6710de8d7ba3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+const image2 = { uri: "https://images.unsplash.com/photo-1657664042448-c955b411d9d0?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&Xixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+const image3 = { uri: "https://images.unsplash.com/photo-1637531347055-4fa8aa80c111?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+const image4 = { uri: "https://yt3.googleusercontent.com/ytc/AIf8zZQRJXcOcibnSuu57AEDPq92nmm8RGbVBhRu-2Su=s900-c-k-c0x00ffffff-no-rj" }
+
 
 const Yard = ({ help }) => {
+    const router = useRouter();
     return (
         <>
             <Text style={styled.heading}>Select help for your {help}</Text>
-            <ScrollView style={styled.mainContainer} horizontal={true}>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-            </ScrollView>
+            <View style={styled.mainContainer} horizontal={true}>
+                <Pressable onPress={() => router.push("/Form/Form")}>
+                    <ImageBackground source={image1} style={styled.container} imageStyle={styled.imgStyle} />
+                    <Text className="text-white text-center mt-4" style={styled.text}>Backyard Cleaning</Text>
+                </Pressable>
+                <Pressable onPress={() => router.back()}>
+                    <ImageBackground source={image2} style={styled.container} imageStyle={styled.imgStyle} />
+                    <Text className="text-white text-center mt-4" style={styled.text}>Garden decoration</Text>
+                </Pressable>
+                <Pressable onPress={() => router.back()}>
+                    <ImageBackground source={image3} style={styled.container} imageStyle={styled.imgStyle} />
+                    <Text className="text-white text-center mt-4" style={styled.text}>Planting</Text>
+                </Pressable>
+                <Pressable onPress={() => router.back()}>
+                    <ImageBackground source={image4} style={styled.container} imageStyle={styled.imgStyle} />
+                    <Text className="text-white text-center mt-4" style={styled.text}>Full service?</Text>
+                </Pressable>
+            </View>
         </>
     );
 }
 
 const styled = StyleSheet.create({
     mainContainer: {
-        backgroundColor: "#000",
         flex: 1,
-        flexWrap: "wrap",
         display: "flex",
+        // backgroundColor: "#fff",
+        justifyContent: 'center',
+        alignItems: "center",
+        flexDirection: "row",
+        gap: 10,
+        flexWrap: "wrap",
     },
     heading: {
-        color: "#fff",
-        fontSize: 20,
-        textTransform: "uppercase",
+        color: "#BFD8AF",
+        fontSize: 18,
         padding: 10,
         backgroundColor: "#000"
     },
     container: {
         backgroundColor: "#fff",
-        border: 2,
-        fontSize: 26,
-        height: 120,
-        width: 120,
-        marginTop: 5,
-        marginLeft: 15
+        height: 150,
+        width: 150,
+        borderRadius: 10,
+        marginTop: 10,
+    },
+    imgStyle: {
+        borderRadius: 10,
+    },
+    text: {
+        fontSize: 16,
+        textTransform: "capitalize",
+        color: "#D2E3C8"
     }
 });
 

@@ -1,43 +1,53 @@
 import React from 'react'
-// import Leaf from "../assets/leaf.jpg"
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ImageBackground, Pressable } from 'react-native';
+import { useRouter } from "expo-router"
+const image = { uri: "https://www.a-star.edu.sg/images/librariesprovider29/default-album/events-banner-01b11d73764d3b4af6aea6727e8365ce84.jpg?sfvrsn=8e263904_0" }
 
 const Delivery = ({ help }) => {
+    const router = useRouter();
     return (
         <>
             <Text style={styled.heading}>Select help for your {help}</Text>
-            <ScrollView style={styled.mainContainer} horizontal={true}>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-                <View style={styled.container}></View>
-            </ScrollView>
+            <View style={styled.mainContainer} horizontal={true}>
+                <Pressable onPress={() => router.back()}>
+                    <ImageBackground source={image} style={styled.container} imageStyle={styled.imgStyle}></ImageBackground>
+                    <Text className="text-white text-center mt-4 capitalize" style={styled.text}>Delivery</Text>
+                </Pressable>
+            </View>
         </>
     );
 }
 
 const styled = StyleSheet.create({
     mainContainer: {
-        backgroundColor: "#000",
         flex: 1,
-        flexWrap: "wrap",
         display: "flex",
+        // backgroundColor: "#fff",
+        justifyContent: 'center',
+        alignItems: "center",
+        flexDirection: "row",
+        gap: 10,
+        flexWrap: "wrap",
     },
     heading: {
         color: "#fff",
-        fontSize: 20,
-        textTransform: "uppercase",
+        fontSize: 18,
         padding: 10,
         backgroundColor: "#000"
     },
     container: {
         backgroundColor: "#fff",
-        border: 2,
-        fontSize: 26,
-        height: 120,
-        width: 120,
-        marginTop: 5,
-        marginLeft: 15
+        height: 150,
+        width: 150,
+        borderRadius: 10,
+        marginTop: 10,
+    },
+    imgStyle: {
+        borderRadius: 10,
+    },
+    text: {
+        fontSize: 16,
+        color: "#eee",
     }
 });
 

@@ -1,50 +1,56 @@
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import "../global.css";
-import { Link, Stack, router } from "expo-router";
-
+import { Link, Stack } from "expo-router";
+import { Feather } from '@expo/vector-icons';
+import Form from "./Form/Form.jsx";
+import Done from "./Done/Done.jsx";
 
 export default function Page() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView horizontal={false}>
-        <Stack.Screen options={{
-          title: ""
-        }} />
-        <View style={styles.main}>
-          <Text className='text-[60px] text-center text-white font-bold uppercase'>Welcome to Workino</Text>
-          <Pressable className="rounded-full rounded-b-full text-center uppercase active:translate-y-2 duration-200 ease-in-out transition-all mt-4 bg-[#892CDC] text-white w-full px-10 py-5 text-3xl">
-            <Link href="/home/HomePage" className="text-3xl text-white text-center">Book now</Link>
-          </Pressable>
+      <Stack.Screen options={{
+        title: ""
+      }} />
+
+      <View className="relative h-screen w-full" style={styles.main}>
+        <Text className="text-[60px] mb-24 -mt-8 uppercase text-center text-white font-black">Wel<Text className="text-[#86A789]">come</Text> to <Text className="text-[#86A789]">Work</Text>ino
+        </Text>
+        <Text className='text-[16px] text-center text-[#86A789] font-medium uppercase'>Discover now</Text>
+        <Text className='text-[25px] text-center text-white font-bold uppercase mt-2'>Find your on-demand service worker</Text>
+        <Text className='text-[14px] text-center w-3/4 text-white font-base mt-5'>We provide better service for you with our <Text className="font-bold text-[#86A789]">On-Demand service</Text> app.
+        </Text>
+        {/* <View className="absolute top-56 left-2 h-16 w-32 rounded-xl bg-[#ffffff59] justify-center items-center">
+          <Text className="text-[14px] text-[#D2E3C8]">On-Demand</Text>
         </View>
-      </ScrollView>
+        <View className="absolute right-2 top-64 h-16 w-32 rounded-xl bg-[#ffffff59] justify-center items-center">
+          <Text className="text-[14px] text-[#D2E3C8]">Hour Basis</Text>
+        </View> */}
+        <Pressable className="rounded-full absolute bottom-12 rounded-b-full uppercase active:translate-y-2 duration-200 ease-in-out transition-all bg-[#4F6F52] text-white w-20 h-20 text-3xl justify-center items-center">
+          <Link href="/home/HomePage" className="text-3xl text-white text-center">
+            <Feather name="arrow-up-right" size={30} color="white" />
+          </Link>
+        </Pressable>
+      </View>
     </SafeAreaView>
+    // <Form />
+    // <Done />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
-    backgroundColor: '#000',
-    display: "flex",
-    justifyContent: "center",
-    height: 10,
-    alignItems: "center"
+    backgroundColor: '#000'
   },
   main: {
     flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
+    justifyContent: "start",
     marginHorizontal: "auto",
+    alignItems: "center",
+    paddingTop: 30
   },
-  subtitle: {
-    fontSize: 36,
-    color: "#fff",
-    backgroundColor: "#892CDC",
-    textAlign: "center",
-    borderRadius: 50,
-    paddingVertical: 5,
+  img: {
+    height: "80%",
     width: "100%",
-    marginTop: "10%"
-  },
+  }
 });

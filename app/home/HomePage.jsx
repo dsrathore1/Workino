@@ -1,6 +1,5 @@
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
-import TabBox from '../../Components/TabBox';
 import { Stack } from "expo-router";
 import Yard from '../../Components/Yard';
 import Home from '../../Components/Home';

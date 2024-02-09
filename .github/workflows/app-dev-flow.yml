@@ -7,7 +7,7 @@ on:
       - "development"
 
 jobs:
-  build:
+  build_development:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,14 +18,23 @@ jobs:
         with:
           node-version: "20.9.0"
 
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{secrets.EXPO_TOKEN}}
+
       - name: Install EAS
         run: npm install -g eas-cli
 
       - name: Installing dependencies
         run: npm install
 
+      - name: EAS Doctor
+        run: npx expo-doctor@latest
+
       - name: Build
-        run: eas build --platform android --profile development
+        run: eas build --platform android --profile development --non-interactive --no-wait
 
       - name: Check build list
         run: eas build:list

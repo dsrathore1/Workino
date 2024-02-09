@@ -1,4 +1,4 @@
-name: Workino App Production CI
+name: Workino App Production and Preview Action CI
 run-name: Workino action number ${{github.run_number}}
 
 on:
@@ -7,7 +7,7 @@ on:
       - "main"
 
 jobs:
-  build:
+  build_production-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,8 +30,13 @@ jobs:
       - name: Installing dependencies
         run: npm install
 
+      - name: EAS Doctor
+        run: npx expo-doctor@latest
+
       - name: Build
-        run: eas build --platform android --profile preview
+        run: |
+          eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
+          eas build --platform android --profile production --non-interactive --no-wait --message "Build"
 
       - name: Check build list
         run: eas build:list

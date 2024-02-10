@@ -30,6 +30,9 @@ jobs:
       - name: Installing dependencies
         run: npm install
 
+      - name: Install Expo dev client
+        run: npm install expo-dev-client
+
       - name: EAS Doctor
         run: npx expo-doctor@latest
 

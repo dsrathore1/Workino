@@ -14,19 +14,21 @@ const Yard = ({ help }) => {
         <>
             <Text style={styled.heading}>Select help for your {help}</Text>
             <View style={styled.mainContainer} horizontal={true}>
-                <Pressable onPress={() => router.push("/Form/Form")}>
+                <Pressable onPress={() => router.push({
+                    pathname: "/Services/backyardDetails"
+                })}>
                     <ImageBackground source={image1} style={styled.container} imageStyle={styled.imgStyle} />
                     <Text className="text-white text-center mt-4" style={styled.text}>Backyard Cleaning</Text>
                 </Pressable>
-                <Pressable onPress={() => router.back()}>
+                <Pressable onPress={() => router.push("/Services/gardenDecoration")}>
                     <ImageBackground source={image2} style={styled.container} imageStyle={styled.imgStyle} />
                     <Text className="text-white text-center mt-4" style={styled.text}>Garden decoration</Text>
                 </Pressable>
-                <Pressable onPress={() => router.back()}>
+                <Pressable onPress={() => router.push("/Services/planting")}>
                     <ImageBackground source={image3} style={styled.container} imageStyle={styled.imgStyle} />
                     <Text className="text-white text-center mt-4" style={styled.text}>Planting</Text>
                 </Pressable>
-                <Pressable onPress={() => router.back()}>
+                <Pressable onPress={() => router.push("/Services/fullService")}>
                     <ImageBackground source={image4} style={styled.container} imageStyle={styled.imgStyle} />
                     <Text className="text-white text-center mt-4" style={styled.text}>Full service?</Text>
                 </Pressable>

@@ -12,11 +12,12 @@ const HomePage = () => {
                 title: "Welcome"
             }} />
             <SafeAreaView style={styled.container}>
-                <ScrollView style={styled.tabContainer}>
+                <ScrollView>
                     <Yard help={"Yard"} />
                     <Home help={"Home"} />
                     <Delivery help={"Delivery (Upcoming Service...)"} />
                 </ScrollView>
+                
             </SafeAreaView>
         </View>
     );

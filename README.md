@@ -1,8 +1,8 @@
 # 🛠️ Workino - Hourly Services App
 
-Welcome to Workino, your go-to platform for hourly services! Workino connects individuals with skilled workers available on an hourly basis, providing assistance for tasks that may be difficult to manage due to time constraints.
+Welcome to Workino, elevate your outdoor living. Professional garden cleaning, planting, and decoration services tailored to your needs. Experience the beauty of a well-maintained garden today.
 
-![Workino Logo](your_logo_url_here)  <!-- Left space for logo -->
+![Workino Logo](#)  <!-- Left space for logo -->
 
 ## Features
 
@@ -39,3 +39,5 @@ Ready to simplify your life with Workino? Download the app now and start connect
 [Download on the App Store](#) | [Get it on Google Play](#)
 
 Questions or feedback? Reach out to us at wefarmous@gmail.com.
+
+## [Documentation](DOCS.md)

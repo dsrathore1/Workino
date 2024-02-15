@@ -36,11 +36,11 @@ jobs:
       - name: EAS Doctor
         run: npx expo-doctor@latest
 
-      - name: Build
-        run: eas build --platform android --profile development --non-interactive --no-wait
+      # - name: Build
+      #   run: eas build --platform android --profile development --non-interactive --no-wait
 
-      - name: Check build list
-        run: eas build:list
+      # - name: Check build list
+      #   run: eas build:list
 
       - name: Message
         run: echo "All DONE👍🏻🌿🎊"

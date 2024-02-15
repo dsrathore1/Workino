@@ -10,7 +10,7 @@ const HomePage = () => {
     <View style={styled.mainContainer}>
       <Stack.Screen
         options={{
-          title: "Welcome",
+          title: "Welcome"
         }}
       />
       <SafeAreaView style={styled.container}>

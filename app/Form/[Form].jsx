@@ -22,6 +22,7 @@ const Form = () => {
         options={{
           headerShadowVisible: false,
           headerTitle: "🌺",
+          headerShown: false,
         }}
       />
       <ScrollView className="h-screen w-full bg-[#4F6F52]">

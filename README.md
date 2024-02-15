@@ -1,8 +1,10 @@
 # 🛠️ Workino - Hourly Services App
+<p align="center">
+  <img align="center" width="120" src="https://github.com/dsrathore1/Workino/blob/main/assets/icon.png" alt="drawing"/>
+</p>
 
 Welcome to Workino, elevate your outdoor living. Professional garden cleaning, planting, and decoration services tailored to your needs. Experience the beauty of a well-maintained garden today.
 
-![Workino Logo](#)  <!-- Left space for logo -->
 
 ## Features
 

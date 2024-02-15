@@ -9,6 +9,10 @@ on:
 jobs:
   build_development:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

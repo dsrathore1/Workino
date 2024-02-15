@@ -13,10 +13,11 @@ export default function Page() {
         options={{
           title: "",
           headerShadowVisible: false,
+          headerShown: false,
         }}
       />
 
-      <PagerView style={{ flex: 1 }} initialPage={0}>
+      <PagerView style={{ flex: 1, marginTop: 50 }} initialPage={0}>
         <View
           className="relative h-screen w-full flex justify-center items-center"
           style={styles.main}
@@ -36,7 +37,7 @@ export default function Page() {
 
         <View className="relative h-screen w-full" style={styles.main} key="2">
           <Text className="text-[16px] text-center text-[#86A789] font-medium uppercase">
-          Garden Service
+            Garden Service
           </Text>
           <Text className="text-[25px] text-center text-white font-bold uppercase mt-2">
             Find your on-demand service worker
@@ -59,10 +60,10 @@ export default function Page() {
             Discover now
           </Text>
           <Text className="text-[25px] text-center text-white font-bold uppercase mt-2">
-          Discover Garden Service at Your Fingertips
+            Discover Garden Service at Your Fingertips
           </Text>
           <Text className="text-[18px] text-center w-3/4 text-white font-base mt-5">
-          Access a service on affordable rates through our
+            Access a service on affordable rates through our
             <Text className="font-bold text-[#86A789]"> Workino </Text>
           </Text>
           <View className="absolute flex justify-center items-center h-[55vh] w-full bottom-[14rem] -z-10">
@@ -71,7 +72,7 @@ export default function Page() {
               style={styles.lastPng}
             />
           </View>
-          <Pressable className="rounded-full absolute bottom-44 rounded-b-full uppercase active:translate-y-2 duration-200 ease-in-out transition-all bg-[#4F6F52] text-white w-20 h-20 text-3xl justify-center items-center">
+          <Pressable className="rounded-full absolute bottom-36 rounded-b-full uppercase active:translate-y-2 duration-200 ease-in-out transition-all bg-[#4F6F52] text-white w-20 h-20 text-3xl justify-center items-center">
             <Link
               href="/home/HomePage"
               className="text-3xl text-white text-center"
@@ -87,7 +88,6 @@ export default function Page() {
         </Text>
       </View>
     </SafeAreaView>
-
   );
 }
 

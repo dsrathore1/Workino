@@ -18,8 +18,9 @@ const CustomerSchema = mongoose.Schema(
     },
     preferredTime: {
       type: String,
-      default: '8:00-10:00 AM'
-    }
+      default: "8:00-10:00 AM",
+    },
+    category: String,
   },
   { timestamps: true }
 );

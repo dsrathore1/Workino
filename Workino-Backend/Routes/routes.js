@@ -21,8 +21,8 @@ routes.post("/getAllData", authMiddleware, async (req, res) => {
   });
 });
 
-routes.get("/", async (req, res) => {
-  res.send("Welcome to workino API");
+routes.get("/", (req, res) => {
+  res.json({ message: "Welcome to workino APIs" });
 });
 
 routes.post("/", async (req, res) => {

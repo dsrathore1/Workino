@@ -21,6 +21,10 @@ routes.post("/getAllData", authMiddleware, async (req, res) => {
   });
 });
 
+routes.get("/", async (req, res) => {
+  res.send("Welcome to workino API");
+});
+
 routes.post("/", async (req, res) => {
   const formData = req.body;
   const data = await FormModel(formData);

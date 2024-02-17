@@ -1,11 +1,20 @@
 import { Router } from "express";
 import FormModel from "../Models/formModel.js";
+import { authMiddleware } from "../Middleware/auth.js";
 
 const routes = Router();
 
-routes.get("/", async (req, res) => {
-  const getData = await FormModel.find({});
+// routes.get("/getAllData", authMiddleware, async (req, res) => {
+//   const getData = await FormModel.find({});
 
+//   res.json({
+//     message: "Customers Data",
+//     data: getData,
+//   });
+// });
+
+routes.post("/getAllData", authMiddleware, async (req, res) => {
+  const getData = await FormModel.find({});
   res.json({
     message: "Customers Data",
     data: getData,

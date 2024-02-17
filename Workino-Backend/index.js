@@ -4,6 +4,7 @@ import { config } from "dotenv";
 
 import routes from "./Routes/routes.js";
 import connectDB from "./DB/connectDB.js";
+import { authMiddleware } from "./Middleware/auth.js";
 
 config();
 

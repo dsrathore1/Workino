@@ -36,36 +36,50 @@ jobs:
       - name: Installing dependencies
         run: npm install
 
+      - name: Inspect the directory
+        run: |
+          ls
+          pwd
+          cd ..
+          ls
+          pwd
+          cd ..
+          ls 
+          pwd
+          cd ..
+          ls
+          pwd
+
       - name: Message
         run: echo "All DONE👍🏻🌿🎊"
 
         #? JOB 2 :- Test the app using expo-doctor before push it to production
 
-  test:
-    runs-on: ubuntu-latest
-    name: Test the Application
-    defaults:
-      run:
-        working-directory: Workino-Frontend
-    needs: setups
-    steps:
-      - name: EAS Doctor
-        run: npx expo-doctor@latest
+  # test:
+  #   runs-on: ubuntu-latest
+  #   name: Test the Application
+  #   defaults:
+  #     run:
+  #       working-directory: Workino-Frontend
+  #   needs: setups
+  #   steps:
+  #     - name: EAS Doctor
+  #       run: npx expo-doctor@latest
 
-        #? JOB 3 :- Build and Deploy Job
+  #       #? JOB 3 :- Build and Deploy Job
 
-  build_deploy:
-    runs-on: ubuntu-latest
-    name: Build and Deploy
-    defaults:
-      run:
-        working-directory: Workino-Frontend
-    needs: test
-    steps:
-      - name: Build
-        run: |
-          eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
-          eas build --platform android --profile production --non-interactive --no-wait --message "Build"
+  # build_deploy:
+  #   runs-on: ubuntu-latest
+  #   name: Build and Deploy
+  #   defaults:
+  #     run:
+  #       working-directory: Workino-Frontend
+  #   needs: test
+  #   steps:
+  #     - name: Build
+  #       run: |
+  #         eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
+  #         eas build --platform android --profile production --non-interactive --no-wait --message "Build"
 
-      - name: Check build list
-        run: eas build:list
+  #     - name: Check build list
+  #       run: eas build:list

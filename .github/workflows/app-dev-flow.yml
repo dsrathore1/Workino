@@ -46,17 +46,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Inspect
-        run: |
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
-
       - name: Install EAS
         run: npm install -g eas-cli
 
@@ -64,7 +53,7 @@ jobs:
         run: npm install
 
       - name: EAS Doctor
-        run: npx expo-doctor@latest
+        run: npx expo-doctor
 
         #? JOB 3 :- Build and Deploy Job
 

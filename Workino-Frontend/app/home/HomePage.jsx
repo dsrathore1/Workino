@@ -2,8 +2,6 @@ import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import { Stack } from "expo-router";
 import Yard from "../../Components/Yard";
-import Home from "../../Components/Home";
-import Delivery from "../../Components/Delivery";
 
 const HomePage = () => {
   return (
@@ -16,8 +14,8 @@ const HomePage = () => {
       <SafeAreaView style={styled.container}>
         <ScrollView>
           <Yard help={"Yard"} />
-          <Home help={"Home"} />
-          <Delivery help={"Delivery (Upcoming Service...)"} />
+          {/* <Home help={"Home"} /> */}
+          {/* <Delivery help={"Delivery (Upcoming Service...)"} /> */}
         </ScrollView>
       </SafeAreaView>
     </View>

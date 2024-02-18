@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Workino App Production and Preview Action CI
+=======
+name: Workino App Development Action CI
+>>>>>>> main
 run-name: Workino action number ${{github.run_number}}
 
 on:
@@ -40,7 +44,11 @@ jobs:
     name: Test the Application
     defaults:
       run:
+<<<<<<< HEAD
         working-directory: Workino-Frontend
+=======
+        working-directory: ./Workino-Frontend
+>>>>>>> main
     needs: setups
     steps:
       - name: Checkout code
@@ -56,6 +64,7 @@ jobs:
         run: npx expo-doctor
 
         #? JOB 3 :- Build and Deploy Job
+<<<<<<< HEAD
 
   # build_deploy:
   #   runs-on: ubuntu-latest
@@ -71,3 +80,23 @@ jobs:
 
   #     - name: Check build list
   #       run: eas build:list
+=======
+
+  build_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    needs: [setups, test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # - name: Build
+      #   run: |
+      #     eas build --platform android --profile development --non-interactive --no-wait --message "Build"
+
+      # - name: Check build list
+      #   run: eas build:list
+>>>>>>> main

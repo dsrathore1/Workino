@@ -5,8 +5,9 @@ import {
   View,
   ImageBackground,
   Pressable,
+  Alert,
 } from "react-native";
-import { useRouter } from "expo-router";
+
 const image = {
   uri: "https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
@@ -15,14 +16,20 @@ const image2 = {
 };
 
 const Home = ({ help }) => {
-  const router = useRouter();
   return (
     <>
       <Text style={styled.heading}>
         Select help for your {help} (Activate Soon)
       </Text>
       <View style={styled.mainContainer} horizontal={true}>
-        <Pressable onPress={() => router.back()}>
+        <Pressable
+          onPress={() => {
+            Alert.alert(
+              "Coming Soon",
+              "We promise you, we will provide this service soon"
+            );
+          }}
+        >
           <ImageBackground
             source={image}
             style={styled.container}
@@ -32,7 +39,14 @@ const Home = ({ help }) => {
             Utensil washing
           </Text>
         </Pressable>
-        <Pressable onPress={() => router.back()}>
+        <Pressable
+          onPress={() => {
+            Alert.alert(
+              "Coming Soon",
+              "We promise you, we will provide this service soon"
+            );
+          }}
+        >
           <ImageBackground
             source={image2}
             style={styled.container}

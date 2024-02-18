@@ -40,7 +40,7 @@ jobs:
     name: Test the Application
     defaults:
       run:
-        working-directory: ./Workino-Frontend
+        working-directory: Workino-Frontend
     needs: setups
     steps:
       - name: Inspect

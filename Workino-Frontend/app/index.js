@@ -36,15 +36,15 @@ export default function Page() {
         </View>
 
         <View className="relative h-screen w-full" style={styles.main} key="2">
-          <Text className="text-[16px] text-center text-[#86A789] font-medium uppercase">
+          <Text className="text-[16px] text-center text-[#deffe1] font-medium uppercase">
             Garden Service
           </Text>
           <Text className="text-[25px] text-center text-white font-bold uppercase mt-2">
-            Find your on-demand service worker
+            Find your on-demand <Text className="text-[#deffe1]">Premium</Text>  workers
           </Text>
           <Text className="text-[18px] text-center w-3/4 text-white font-base mt-5">
-            We provide better service for you with our{" "}
-            <Text className="font-bold text-[#86A789]">On-Demand service</Text>{" "}
+            We provide premium service for you with our{" "}
+            <Text className="font-bold text-[#deffe1]">On-Demand service</Text>{" "}
             app.
           </Text>
 
@@ -56,7 +56,7 @@ export default function Page() {
           </View>
         </View>
         <View className="relative h-screen w-full" style={styles.main} key="3">
-          <Text className="text-[16px] text-center text-[#86A789] font-medium uppercase">
+          <Text className="text-[16px] text-center text-[#deffe1] font-medium uppercase">
             Discover now
           </Text>
           <Text className="text-[25px] text-center text-white font-bold uppercase mt-2">
@@ -64,7 +64,7 @@ export default function Page() {
           </Text>
           <Text className="text-[18px] text-center w-3/4 text-white font-base mt-5">
             Access a service on affordable rates through our
-            <Text className="font-bold text-[#86A789]"> Workino </Text>
+            <Text className="font-bold text-[#deffe1]"> Workino </Text>
           </Text>
           <View className="absolute flex justify-center items-center h-[55vh] w-full bottom-[14rem] -z-10">
             <Image

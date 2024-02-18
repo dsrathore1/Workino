@@ -37,19 +37,18 @@ const FullService = () => {
                 </Text>
                 <Text className="text-white ">
                   2. Affordable pricing starting from
-                  <Text className="font-bold text-xl text-[#7ca37f]"> 999 Rupees.</Text>
+                  <Text className="font-bold text-xl text-[#D2E3C8]"> 1599 Rupees.</Text>
                 </Text>
                 <Text className="text-white ">
-                  3. Complete within a max of 5 hours time for 50 yards.
+                  3. Complete within a max of 6 hours time for 20 yards.
                 </Text>
                 <Text className="text-white ">
                   4. Exclusive focus on the agreed-upon tasks without additional
                   services.
                 </Text>
                 <Text className="text-white ">
-                  5. Services cover a wide spectrum including planting
-                  selection, creative decoration, thorough backyard cleaning,
-                  and efficient completion of tasks.
+                  5. Services cover a wide spectrum including <Text className="font-bold text-[#D2E3C8] uppercase text-lg">planting, creative decoration, backyard cleaning,
+                  </Text> and efficient completion of tasks.
                 </Text>
               </View>
               <View className="w-full justify-center flex items-center h-14 mt-3">

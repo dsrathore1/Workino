@@ -5,23 +5,91 @@ import {
   StyleSheet,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
-import { Stack, useLocalSearchParams, useRouter } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { Picker } from "@react-native-picker/picker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Form = () => {
   const [selectedTime, setSelectedTime] = useState();
-  const router = useRouter();
 
   const { Form } = useLocalSearchParams();
+
+  const [name, setName] = useState("");
+  const [add, setAdd] = useState("");
+  const [num, setNum] = useState();
+
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const postData = async () => {
+    await fetch("https://workino.onrender.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        address: add,
+        mob_number: num,
+        category: Form,
+        preferredTime: selectedTime,
+      }),
+    });
+  };
+
+  const handleSubmit = () => {
+    if (isFormValid) {
+      console.log("Form submitted successfully!");
+      Alert.alert(
+        "Thank you for booking",
+        "We will be there soon or contact me by calling on 6351774992"
+      );
+      postData();
+      setName("");
+      setAdd("");
+      setNum("");
+      setSelectedTime("8:00 - 10:00 AM");
+    } else {
+      console.log("Form has errors. Please correct them.");
+      Alert.alert("Please fill the form first");
+    }
+  };
+
+  const validateForm = () => {
+    let errors = {};
+
+    // Validate name field
+    if (!name) {
+      errors.name = "Name is required.";
+    }
+
+    // Validate address field
+    if (!add) {
+      errors.add = "Address is required.";
+    }
+
+    // Validate mobile number field
+    if (!num) {
+      errors.num = "Mobile number is required.";
+    } else if (num.length < 10) {
+      errors.password = "Mobile Number must be 10 characters.";
+    }
+
+    // Set the errors and update form validity
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  };
+
+  useEffect(() => {
+    validateForm();
+  }, [name, add, num]);
 
   return (
     <>
       <Stack.Screen
         options={{
-          headerShadowVisible: false,
-          headerTitle: "🌺",
           headerShown: false,
         }}
       />
@@ -35,35 +103,54 @@ const Form = () => {
         <Text className="text-[#739072] text-center text-5xl uppercase font-black">
           {Form}
         </Text>
-        <View className="text-white bg-white" style={styled.formContainer}>
+        <View
+          className="text-white h-full mb-[5rem] bg-white"
+          style={styled.formContainer}
+        >
           <View style={styled.inputField}>
             <Text className="text-[16px] pl-4">Name / नाम</Text>
-            <TextInput style={styled.input} placeholder="John Doe"></TextInput>
+            <TextInput
+              style={styled.input}
+              value={name}
+              onChangeText={(text) => {
+                setName(text);
+              }}
+              placeholder="John Doe"
+            ></TextInput>
           </View>
           <View style={styled.inputField}>
             <Text className="text-[16px] pl-4">Address / पता</Text>
             <TextInput
               style={styled.input}
               placeholder="Staff Quarter, No. 13 "
+              value={add}
+              onChangeText={(text) => {
+                setAdd(text);
+              }}
             ></TextInput>
           </View>
           <View style={styled.inputField}>
             <Text className="text-[16px] pl-4">
               Mobile Number / मोबाइल नंबर
             </Text>
-            <TextInput style={styled.input} placeholder="6351*****"></TextInput>
+            <TextInput
+              value={num}
+              onChangeText={(text) => {
+                setNum(text);
+              }}
+              keyboardType="number-pad"
+              style={styled.input}
+              placeholder="6351*****"
+            ></TextInput>
           </View>
           <View style={styled.inputField}>
             <Text className="text-[16px] pl-4">
               Select your preferable time / अपना पसंदीदा समय चुनें
             </Text>
-            {/* <TextInput style={styled.input} placeholder="John Doe"></TextInput> */}
-            <View style={styled.input}>
+            <View style={[styled.input, { marginBottom: 50 }]}>
               <Picker
                 selectedValue={selectedTime}
-                onValueChange={(itemValue, itemIndex) =>
-                  setSelectedTime(itemValue)
-                }
+                onValueChange={(itemValue) => setSelectedTime(itemValue)}
                 mode="dialog"
                 dropdownIconColor="#739072"
               >
@@ -85,13 +172,28 @@ const Form = () => {
           </View>
           <View style={styled.btnContainer}>
             <Pressable
+              disabled={!isFormValid}
+              onPress={() => {
+                handleSubmit();
+              }}
+              style={[styled.formBtn, { opacity: isFormValid ? 1 : 0.5 }]}
+            >
+              <Text className="text-white uppercase font-bold">Book Now</Text>
+            </Pressable>
+
+            {Object.values(errors).map((error, index) => (
+              <Text key={index} style={styled.error}>
+                {error}
+              </Text>
+            ))}
+            {/* <Pressable
               onPress={() => {
                 router.push("/Done/Done");
               }}
               style={styled.formBtn}
             >
               <Text className="text-white uppercase font-bold">Book Now</Text>
-            </Pressable>
+            </Pressable> */}
           </View>
         </View>
       </ScrollView>
@@ -146,6 +248,12 @@ const styled = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 3,
     elevation: 3,
+    marginVertical: 10,
+  },
+  error: {
+    color: "red",
+    fontSize: 16,
+    marginBottom: 15,
   },
 });
 

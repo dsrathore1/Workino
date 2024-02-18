@@ -36,10 +36,13 @@ const Planting = () => {
                 </Text>
                 <Text className="text-white ">
                   2. Affordable pricing starting from
-                  <Text className="font-bold text-xl text-[#7ca37f]"> 399 Rupees.</Text>
+                  <Text className="font-bold text-xl text-[#D2E3C8]">
+                    {" "}
+                    699 Rupees.
+                  </Text>
                 </Text>
                 <Text className="text-white ">
-                  3. Complete within a max of 3 hours time for 50 yards.
+                  3. Complete within a max of 3 hours time for 20 yards.
                 </Text>
                 <Text className="text-white ">
                   4. Dedicated to the planting task and assisting with plant
@@ -47,7 +50,11 @@ const Planting = () => {
                 </Text>
                 <Text className="text-white ">
                   5. Services cover the entire process from selection to
-                  planting, ensuring optimal garden aesthetics.
+                  <Text className="font-bold text-[#D2E3C8] uppercase text-lg">
+                    {" "}
+                    planting (flowers, Beautiful plants, herbs etc.), ensuring optimal garden
+                    aesthetics.
+                  </Text>
                 </Text>
               </View>
               <View className="w-full justify-center flex items-center h-14 mt-3">

@@ -37,10 +37,13 @@ const GardenDecoration = () => {
                 </Text>
                 <Text className="text-white ">
                   2. Affordable pricing starting from
-                  <Text className="font-bold text-xl text-[#7ca37f]"> 499 Rupees.</Text>
+                  <Text className="font-bold text-xl text-[#D2E3C8]">
+                    {" "}
+                    699 Rupees.
+                  </Text>
                 </Text>
                 <Text className="text-white ">
-                  3. Complete within a max of 3 hours time for 50 yards.
+                  3. Complete within a max of 4 hours time for 20 yards.
                 </Text>
                 <Text className="text-white ">
                   4. Dedicated to the agreed-upon decoration task without
@@ -48,8 +51,10 @@ const GardenDecoration = () => {
                 </Text>
                 <Text className="text-white ">
                   5. Services encompass a variety of decorative elements
-                  including but not limited to flower arrangements, lighting,
-                  and ornamental features.
+                  including{" "}
+                  <Text className="font-bold text-[#D2E3C8] uppercase text-lg">
+                    flower planting, lighting, and ornamental features.
+                  </Text>
                 </Text>
               </View>
               <View className="w-full justify-center flex items-center h-14 mt-3">

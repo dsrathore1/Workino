@@ -36,17 +36,23 @@ const BackyardDetails = () => {
                 </Text>
                 <Text className="text-white">
                   2. Affordable pricing at just
-                  <Text className="font-bold text-xl text-[#7ca37f]"> 499 Rupees.</Text>
+                  <Text className="font-bold text-xl text-[#D2E3C8]">
+                    {" "}
+                    599 Rupees.
+                  </Text>
                 </Text>
                 <Text className="text-white ">
-                  3. Complete within a max of 2 hours time for 50 yards.
+                  3. Complete within a max of 3 hours time for 20 yards.
                 </Text>
                 <Text className="text-white ">
-                  4. Strict adherence to ordered services without upselling.
+                  4. Without your consent, we would not take any actions.
                 </Text>
                 <Text className="text-white ">
-                  5. Complete garden care: cleaning, watering, wood collection,
-                  and controlled burning with your approval.
+                  5. Complete garden care:{" "}
+                  <Text className="font-bold text-[#D2E3C8] uppercase text-lg">
+                    cleaning, watering, wood collection, and controlled burning
+                  </Text>{" "}
+                  with your approval.
                 </Text>
               </View>
               <View className="w-full justify-center flex items-center h-14 mt-3">

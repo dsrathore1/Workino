@@ -12,6 +12,9 @@ jobs:
   setups:
     runs-on: ubuntu-latest
     name: Setup the App
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

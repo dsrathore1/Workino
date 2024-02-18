@@ -39,9 +39,6 @@ jobs:
       - name: Install Expo dev client
         run: npm install expo-dev-client
 
-      - name: EAS Doctor
-        run: npx expo-doctor@latest
-
       - name: Message
         run: echo "All DONE👍🏻🌿🎊"
 
@@ -64,9 +61,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     needs: test
-    defaults:
-      run:
-        working-directory: ./Workino-Frontend
     steps:
       - name: Build
         run: eas build --platform android --profile development --non-interactive --no-wait

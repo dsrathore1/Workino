@@ -7,12 +7,14 @@ on:
       - "development"
 
 jobs:
-  build_development:
+  #? JOB 1 :- Setup the app before push it to testing
+
+  setups:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./Workino-Frontend
-        
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -40,11 +42,34 @@ jobs:
       - name: EAS Doctor
         run: npx expo-doctor@latest
 
-      # - name: Build
-      #   run: eas build --platform android --profile development --non-interactive --no-wait
-
-      # - name: Check build list
-      #   run: eas build:list
-
       - name: Message
         run: echo "All DONE👍🏻🌿🎊"
+
+      #? JOB 2 :- Test the app using expo-doctor before push it to production
+
+  test:
+    runs-on: ubuntu-latest
+    name: Test the Application
+    needs: setups
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    steps:
+      - name: EAS Doctor
+        run: npx expo-doctor@latest
+
+      #? JOB 3 :- Build and Deploy Job
+
+  build_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    needs: test
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    steps:
+      - name: Build
+        run: eas build --platform android --profile development --non-interactive --no-wait
+
+      - name: Check build list
+        run: eas build:list

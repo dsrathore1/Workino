@@ -7,14 +7,12 @@ on:
       - "main"
 
 jobs:
-  #? JOB 1 :- Setup the app before push it to testing
-
-  setups:
+  build_production-preview:
     runs-on: ubuntu-latest
-    name: Setup the App
     defaults:
       run:
         working-directory: ./Workino-Frontend
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,58 +22,25 @@ jobs:
         with:
           node-version: "20.9.0"
 
-      - name: Install EAS
-        run: npm install -g eas-cli
-
       - name: Setup EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{secrets.EXPO_TOKEN}}
-
-      - name: Build
-        run: |
-          eas build --platform android --profile preview --non-interactive --no-wait
-          eas build --platform android --profile production --non-interactive --no-wait
-            
-            #? JOB 2 :- Test the app using expo-doctor before push it to production
-
-  test:
-    runs-on: ubuntu-latest
-    name: Test the Application
-    defaults:
-      run:
-        working-directory: ./Workino-Frontend
-    needs: setups
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
       - name: Install EAS
         run: npm install -g eas-cli
 
       - name: Installing dependencies
         run: npm install
-
+        
       - name: EAS Doctor
         run: npx expo-doctor@latest
 
-  done:
-    runs-on: ubuntu-latest
-    name: Done ✅
-    needs: [setups, test]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Install EAS
-        run: npm install -g eas-cli
-
-      - name: Setup EAS
-        uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{secrets.EXPO_TOKEN}}
+      - name: Build
+        run: |
+          eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
+          eas build --platform android --profile production --non-interactive --no-wait --message "Build"
 
       - name: Check build list
         run: eas build:list

@@ -44,6 +44,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Test the Application
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
     needs: setups
     steps:
       - name: EAS Doctor
@@ -54,6 +57,9 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     name: Build and Deploy
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
     needs: test
     steps:
       - name: Build

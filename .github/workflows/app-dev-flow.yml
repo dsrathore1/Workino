@@ -1,4 +1,4 @@
-name: Workino App Production and Preview Action CI
+name: Workino App Development Action CI
 run-name: Workino action number ${{github.run_number}}
 
 on:
@@ -43,16 +43,8 @@ jobs:
         working-directory: ./Workino-Frontend
     needs: setups
     steps:
-      - name: Inspect
-        run: |
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Install EAS
         run: npm install -g eas-cli
@@ -65,17 +57,20 @@ jobs:
 
         #? JOB 3 :- Build and Deploy Job
 
-  # build_deploy:
-  #   runs-on: ubuntu-latest
-  #   name: Build and Deploy
-  #   defaults:
-  #     run:
-  #       working-directory: Workino-Frontend
-  #   needs: test
-  #   steps:
-  #     - name: Build
-  #       run: |
-  #         eas build --platform android --profile development --non-interactive --no-wait --message "Build"
+  build_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    needs: [setups, test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  #     - name: Check build list
-  #       run: eas build:list
+      # - name: Build
+      #   run: |
+      #     eas build --platform android --profile development --non-interactive --no-wait --message "Build"
+
+      # - name: Check build list
+      #   run: eas build:list

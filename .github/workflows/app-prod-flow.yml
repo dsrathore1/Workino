@@ -30,9 +30,6 @@ jobs:
           eas-version: latest
           token: ${{secrets.EXPO_TOKEN}}
 
-      - name: Message
-        run: echo "All DONE👍🏻🌿🎊"
-
         #? JOB 2 :- Test the app using expo-doctor before push it to production
 
   test:
@@ -43,16 +40,8 @@ jobs:
         working-directory: ./Workino-Frontend
     needs: setups
     steps:
-      - name: Inspect
-        run: |
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
-          cd ..
-          ls
-          pwd
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Install EAS
         run: npm install -g eas-cli
@@ -65,18 +54,32 @@ jobs:
 
         #? JOB 3 :- Build and Deploy Job
 
-  # build_deploy:
-  #   runs-on: ubuntu-latest
-  #   name: Build and Deploy
-  #   defaults:
-  #     run:
-  #       working-directory: Workino-Frontend
-  #   needs: test
-  #   steps:
-  #     - name: Build
-  #       run: |
-  #         eas build --platform android --profile preview --non-interactive --no-wait --message "Build"
-  #         eas build --platform android --profile production --non-interactive --no-wait --message "Build"
+  build_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    needs: [setups, test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  #     - name: Check build list
-  #       run: eas build:list
+      - name: Build
+        run: |
+          eas build --platform android --profile preview --non-interactive --no-wait --message "Build"
+          eas build --platform android --profile production --non-interactive --no-wait --message "Build"
+
+      - name: Check build list
+        run: eas build:list
+
+  done:
+    runs-on: ubuntu-latest
+    name: Done ✅
+    needs: [setups, test, build_deploy]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Message
+        run: echo "All DONE👍🏻🌿🎊"

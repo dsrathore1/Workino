@@ -30,13 +30,20 @@ jobs:
           eas-version: latest
           token: ${{secrets.EXPO_TOKEN}}
 
-      - name: Install EAS
-        run: npm install -g eas-cli
+      - name: Message
+        run: echo "All DONE👍🏻🌿🎊"
 
-      - name: Installing dependencies
-        run: npm install
+        #? JOB 2 :- Test the app using expo-doctor before push it to production
 
-      - name: Inspect the directory
+  test:
+    runs-on: ubuntu-latest
+    name: Test the Application
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    needs: setups
+    steps:
+      - name: Inspect
         run: |
           ls
           pwd
@@ -44,29 +51,19 @@ jobs:
           ls
           pwd
           cd ..
-          ls 
-          pwd
-          cd ..
           ls
           pwd
 
-      - name: Message
-        run: echo "All DONE👍🏻🌿🎊"
+      - name: Install EAS
+        run: npm install -g eas-cli
 
-        #? JOB 2 :- Test the app using expo-doctor before push it to production
+      - name: Installing dependencies
+        run: npm install
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   name: Test the Application
-  #   defaults:
-  #     run:
-  #       working-directory: Workino-Frontend
-  #   needs: setups
-  #   steps:
-  #     - name: EAS Doctor
-  #       run: npx expo-doctor@latest
+      - name: EAS Doctor
+        run: npx expo-doctor@latest
 
-  #       #? JOB 3 :- Build and Deploy Job
+        #? JOB 3 :- Build and Deploy Job
 
   # build_deploy:
   #   runs-on: ubuntu-latest
@@ -78,7 +75,7 @@ jobs:
   #   steps:
   #     - name: Build
   #       run: |
-  #         eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
+  #         eas build --platform android --profile preview --non-interactive --no-wait --message "Build"
   #         eas build --platform android --profile production --non-interactive --no-wait --message "Build"
 
   #     - name: Check build list

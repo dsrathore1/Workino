@@ -1,4 +1,4 @@
-name: Workino App Development CI
+name: Workino App Production and Preview Action CI
 run-name: Workino action number ${{github.run_number}}
 
 on:
@@ -11,10 +11,10 @@ jobs:
 
   setups:
     runs-on: ubuntu-latest
+    name: Setup the App
     defaults:
       run:
         working-directory: ./Workino-Frontend
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -30,40 +30,52 @@ jobs:
           eas-version: latest
           token: ${{secrets.EXPO_TOKEN}}
 
+      - name: Message
+        run: echo "All DONE👍🏻🌿🎊"
+
+        #? JOB 2 :- Test the app using expo-doctor before push it to production
+
+  test:
+    runs-on: ubuntu-latest
+    name: Test the Application
+    defaults:
+      run:
+        working-directory: ./Workino-Frontend
+    needs: setups
+    steps:
+      - name: Inspect
+        run: |
+          ls
+          pwd
+          cd ..
+          ls
+          pwd
+          cd ..
+          ls
+          pwd
+
       - name: Install EAS
         run: npm install -g eas-cli
 
       - name: Installing dependencies
         run: npm install
 
-      - name: Install Expo dev client
-        run: npm install expo-dev-client
-
-      - name: Message
-        run: echo "All DONE👍🏻🌿🎊"
-
-      #? JOB 2 :- Test the app using expo-doctor before push it to production
-
-  test:
-    runs-on: ubuntu-latest
-    name: Test the Application
-    needs: setups
-    defaults:
-      run:
-        working-directory: ./Workino-Frontend
-    steps:
       - name: EAS Doctor
         run: npx expo-doctor@latest
 
-      #? JOB 3 :- Build and Deploy Job
+        #? JOB 3 :- Build and Deploy Job
 
-  build_deploy:
-    runs-on: ubuntu-latest
-    name: Build and Deploy
-    needs: test
-    steps:
-      - name: Build
-        run: eas build --platform android --profile development --non-interactive --no-wait
+  # build_deploy:
+  #   runs-on: ubuntu-latest
+  #   name: Build and Deploy
+  #   defaults:
+  #     run:
+  #       working-directory: Workino-Frontend
+  #   needs: test
+  #   steps:
+  #     - name: Build
+  #       run: |
+  #         eas build --platform android --profile development --non-interactive --no-wait --message "Build"
 
-      - name: Check build list
-        run: eas build:list
+  #     - name: Check build list
+  #       run: eas build:list

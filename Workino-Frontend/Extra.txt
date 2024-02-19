@@ -3,3 +3,6 @@
 
 # Main Entry point
 "main": "node_modules/expo/AppEntry.js",
+
+# New Commit
+"test" : "jest"

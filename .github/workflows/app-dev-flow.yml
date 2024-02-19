@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-name: Workino App Production and Preview Action CI
-=======
 name: Workino App Development Action CI
->>>>>>> main
 run-name: Workino action number ${{github.run_number}}
 
 on:
@@ -11,14 +7,12 @@ on:
       - "development"
 
 jobs:
-  #? JOB 1 :- Setup the app before push it to testing
-
-  setups:
+  build_production-preview:
     runs-on: ubuntu-latest
-    name: Setup the App
     defaults:
       run:
         working-directory: ./Workino-Frontend
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,69 +28,21 @@ jobs:
           eas-version: latest
           token: ${{secrets.EXPO_TOKEN}}
 
-      - name: Message
-        run: echo "All DONE👍🏻🌿🎊"
-
-        #? JOB 2 :- Test the app using expo-doctor before push it to production
-
-  test:
-    runs-on: ubuntu-latest
-    name: Test the Application
-    defaults:
-      run:
-<<<<<<< HEAD
-        working-directory: Workino-Frontend
-=======
-        working-directory: ./Workino-Frontend
->>>>>>> main
-    needs: setups
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Install EAS
         run: npm install -g eas-cli
 
       - name: Installing dependencies
         run: npm install
-
+        
       - name: EAS Doctor
-        run: npx expo-doctor
-
-        #? JOB 3 :- Build and Deploy Job
-<<<<<<< HEAD
-
-  # build_deploy:
-  #   runs-on: ubuntu-latest
-  #   name: Build and Deploy
-  #   defaults:
-  #     run:
-  #       working-directory: Workino-Frontend
-  #   needs: test
-  #   steps:
-  #     - name: Build
-  #       run: |
-  #         eas build --platform android --profile development --non-interactive --no-wait --message "Build"
-
-  #     - name: Check build list
-  #       run: eas build:list
-=======
-
-  build_deploy:
-    runs-on: ubuntu-latest
-    name: Build and Deploy
-    defaults:
-      run:
-        working-directory: ./Workino-Frontend
-    needs: [setups, test]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        run: npx expo-doctor@latest
 
       # - name: Build
       #   run: |
-      #     eas build --platform android --profile development --non-interactive --no-wait --message "Build"
+      #     eas build --platform android --profile development --non-interactive --no-wait --message "Build" 
 
       # - name: Check build list
       #   run: eas build:list
->>>>>>> main
+
+      - name: Message
+        run: echo "All DONE👍🏻🌿🎊"

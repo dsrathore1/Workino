@@ -4,5 +4,15 @@
 # Main Entry point
 "main": "node_modules/expo/AppEntry.js",
 
-# New Commit
-"test" : "jest"
+#! Build commands
+Step 1 :- Login
+  > eas login
+
+Step 2 :- Configure
+  > eas build:configure
+
+Step 3 :- Build for android platform
+  > eas build --platform android
+
+Step 4 :- Check build list
+  > eas build:list

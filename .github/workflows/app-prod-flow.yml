@@ -39,8 +39,8 @@ jobs:
 
       - name: Build
         run: |
-          eas build --platform android --profile preview --non-interactive --no-wait --message "Build" 
-          eas build --platform android --profile production --non-interactive --no-wait --message "Build"
+          eas build --platform android --profile preview --no-wait --message "Build" 
+          eas build --platform android --profile production --no-wait --message "Build"
 
       - name: Check build list
         run: eas build:list

@@ -40,7 +40,8 @@ export default function Page() {
             Garden Service
           </Text>
           <Text className="text-[25px] text-center text-white font-bold uppercase mt-2">
-            Find your on-demand <Text className="text-[#deffe1]">Premium</Text>  workers
+            Find your on-demand <Text className="text-[#deffe1]">Premium</Text>{" "}
+            workers
           </Text>
           <Text className="text-[18px] text-center w-3/4 text-white font-base mt-5">
             We provide premium service for you with our{" "}
@@ -90,6 +91,7 @@ export default function Page() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

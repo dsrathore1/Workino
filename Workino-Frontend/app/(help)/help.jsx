@@ -1,24 +1,39 @@
+import { Stack, router } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
-const help = () => {
+const Help = () => {
   return (
-    <View className="relative h-screen bg-[#eee]">
-      <Text className="text-black font-bold uppercase">Contact Us</Text>
-      <Text className="text-black font-light">
-        If you have any question we are happy to help you.
-      </Text>
-      <View className="h-10 w-20 bg-[#fff] rounded-xl my-5 gap-y-10 mx-2">
-        <Text className="text-[#eee]">
-          Number :- <Text className="font-bold text-white">6351774992</Text>
+    <>
+      <Stack.Screen
+        options={{
+          headerTitle: "Contact Us",
+        }}
+      />
+      <View className="relative h-screen bg-[#eee] px-4 w-full justify-start items-center flex mt-10">
+        <Text className="text-black font-light text-2xl text-center">
+          If you have any question we are happy to help you.
         </Text>
-        <Text className="text-[#eee]">
-          E-Mail :-{" "}
-          <Text className="font-bold text-white">wefarmous@gmail.com</Text>
-        </Text>
+        <View className="h-[40%] w-full bg-[#fff] rounded-xl my-5 gap-y-10 mx-2 flex justify-center items-center">
+          <Text className="text-[#000] text-2xl">
+            Call me :- <Text className="font-bold text-000">6351774992</Text>
+          </Text>
+          <Text className="text-[#000] text-2xl">
+            E-Mail :-{" "}
+            <Text className="font-bold text-000">wefarmous@gmail.com</Text>
+          </Text>
+        </View>
+        <Pressable
+          className="border-[#86A789] border-2 rounded-lg"
+          onPress={() => {
+            router.back();
+          }}
+        >
+          <Text className="px-16 py-3 text-xl uppercase">Home</Text>
+        </Pressable>
       </View>
-    </View>
+    </>
   );
 };
 
-export default help;
+export default Help;

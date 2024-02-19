@@ -1,14 +1,48 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
-import { Stack } from "expo-router";
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
+import { Stack, useRouter } from "expo-router";
 import Yard from "../../Components/Yard";
 
 const HomePage = () => {
+  const router = useRouter();
   return (
     <View style={styled.mainContainer}>
       <Stack.Screen
         options={{
-          title: "Welcome"
+          title: "Welcome",
+          headerRight: () => (
+            <Button
+              onPress={() => {
+                Alert.alert(
+                  "How may I help you?",
+                  "If you have any questions we are happy to help you",
+                  [
+                    {
+                      text: "No",
+                    },
+                    {
+                      text: "Yes",
+                      onPress: () => {
+                        router.push("/help")
+                      },
+                    },
+                  ],
+                  {
+                    cancelable: true,
+                  }
+                );
+              }}
+              title="Help?"
+              color="#86A789"
+            />
+          ),
         }}
       />
       <SafeAreaView style={styled.container}>

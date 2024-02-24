@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 
 connectDB();
 
+app.set("views", "Templates");
+app.set("view engine", "ejs");
+
 app.use(routes);
 
 app.listen(PORT, () => {

@@ -1,52 +1,31 @@
 import { Router } from "express";
-import FormModel from "../Models/formModel.js";
-import { authMiddleware } from "../Middleware/auth.js";
+import {
+  deleteAll,
+  deleteByID,
+  // getAllData,
+  getDataByID,
+  homeRoute,
+  mainPostData,
+  postAllData,
+  updateByID,
+} from "../Controller/controllers.js";
 
 const routes = Router();
 
-// routes.get("/getAllData", authMiddleware, async (req, res) => {
-//   const getData = await FormModel.find({});
+// routes.get("/getAllData", getAllData);
 
-//   res.json({
-//     message: "Customers Data",
-//     data: getData,
-//   });
-// });
+routes.post("/getAllData", postAllData);
 
-routes.post("/getAllData", authMiddleware, async (req, res) => {
-  const getData = await FormModel.find({});
-  res.json({
-    message: "Customers Data",
-    data: getData,
-  });
-});
+routes.get("/", homeRoute);
 
-routes.get("/", (req, res) => {
-  res.json({ message: "Welcome to workino APIs" });
-});
+routes.post("/", mainPostData);
 
-routes.post("/", async (req, res) => {
-  const formData = req.body;
-  const data = await FormModel(formData);
-  try {
-    const saveData = await data.save();
+routes.delete("/deleteAll", deleteAll);
 
-    res.json({
-      message: "Data include successfully",
-      data: saveData,
-    });
-  } catch (error) {
-    if (error) throw error;
-  }
-});
+routes.get("/oneData/:id", getDataByID);
 
-routes.delete("/deleteAll", async (req, res) => {
-  try {
-    await FormModel.deleteMany({});
-    res.send("Delete All data successfully");
-  } catch (error) {
-    if (err) throw err;
-  }
-});
+routes.delete("/deleteOneData/:id", deleteByID);
+
+routes.put("/updateData/:id", updateByID);
 
 export default routes;

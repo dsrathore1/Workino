@@ -2,8 +2,7 @@ export const authMiddleware = (req, res, next) => {
   try {
     const { token } = req.body;
 
-    if (token == "kgf") {
-      console.log("User confirmed!!");
+    if (token === process.env.TOKEN) {
       next();
       res.setHeader("Content-Type", "application/json");
     } else {

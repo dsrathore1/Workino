@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   deleteAll,
   deleteByID,
-  // getAllData,
+  getAllData,
   getDataByID,
   homeRoute,
   mainPostData,
@@ -12,7 +12,7 @@ import {
 
 const routes = Router();
 
-// routes.get("/getAllData", getAllData);
+routes.get("/getAllData", getAllData);
 
 routes.post("/getAllData", postAllData);
 

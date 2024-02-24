@@ -19,11 +19,11 @@ export const homeRoute = async (req, res) => {
 };
 
 //! GET
-// export const getAllData = async (req, res) => {
-//   await FormModel.find({}).then((data) => {
-//     res.json({ message: "All Data", data });
-//   });
-// };
+export const getAllData = async (req, res) => {
+  await FormModel.find({}).then((data) => {
+    res.json({ message: "All Data", data });
+  });
+};
 
 //! POST
 export const postAllData = async (req, res) => {

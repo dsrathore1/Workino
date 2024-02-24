@@ -4,7 +4,7 @@ import { config } from "dotenv";
 
 import routes from "./Routes/routes.js";
 import connectDB from "./DB/connectDB.js";
-import { authMiddleware } from "./Middleware/auth.js";
+import userRoutes from "./Routes/usersRoutes.js";
 
 config();
 
@@ -22,6 +22,7 @@ app.set("views", "Templates");
 app.set("view engine", "ejs");
 
 app.use(routes);
+app.use(userRoutes);
 
 app.listen(PORT, () => {
   console.log(`your site is live on http://localhost:${PORT}`);

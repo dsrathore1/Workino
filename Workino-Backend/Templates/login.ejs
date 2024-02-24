@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%=title%>
+  </title>
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h1>
+    <%=title %>
+  </h1>
+  <form class="h-screen bg-red-400" action="/userLogin" method="POST">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Enter your Email" />
+    <label>Password</label>
+    <input type="password" name="pwd" placeholder="Enter your Password" />
+
+    <button type="submit">Login</button>
+  </form>
+</body>
+
+</html>

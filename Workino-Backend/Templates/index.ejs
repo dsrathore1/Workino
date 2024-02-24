@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title><%=title %></title>
-  </head>
-  <body class="h-screen w-full bg-[#000]">
-    <h1 class="text-center text-4xl text-white uppercase font-bold">🎀<%=title %>🎀</h1>
-    <a class="text-blue-500 text-center" href="/getAllData">Get All Data</a>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>
+    <%=title %>
+  </title>
+</head>
+
+<body class="h-screen w-full bg-[#000]" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <a href="/" class="w-full flex justify-center items-center text-4xl text-white uppercase font-bold">
+    🎀<%=title %>🎀
+  </a>
+  <div class="w-full h-[90vh] flex justify-center flex-wrap items-center">
+    <a class="text-blue-500 text-3xl text-center uppercase hover:text-blue-300 w-1/2" href="/getAllData">✨ Get Data
+      ✨</a>
+    <a class="text-blue-500 text-3xl text-center uppercase hover:text-blue-300 w-1/2" href="/">✨ Post Data ✨</a>
+    <a class="text-blue-500 text-3xl text-center uppercase hover:text-blue-300 w-1/2" href="/deleteAll">✨ Delete All
+      ✨</a>
+    <a class="text-blue-500 text-3xl text-center uppercase hover:text-blue-300 w-1/2" href="/userSignUp">✨ Sign Up
+      ✨</a>
+    <a class="text-blue-500 text-3xl text-center uppercase hover:text-blue-300 w-1/2" href="/userLogin">✨ Login
+      ✨</a>
+  </div>
+</body>
+
 </html>

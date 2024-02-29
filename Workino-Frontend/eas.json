@@ -1,6 +1,6 @@
 {
   "cli": {
-    "version": ">= 7.1.2"
+    "version": ">= 7.2.0"
   },
   "build": {
     "development": {
@@ -8,16 +8,9 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal",
-      "android": {
-        "buildType": "apk"
-      }
+      "distribution": "internal"
     },
-    "production": {
-      "env": {
-        "EXPO_PUBLIC_API_URL": "https://workino.onrender.com"
-      }
-    }
+    "production": {}
   },
   "submit": {
     "production": {}

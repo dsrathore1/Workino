@@ -15,6 +15,7 @@ userRoutes.get("/userSignUp", (req, res) => {
 });
 
 userRoutes.post("/userLogin", handleUserLogin);
+
 userRoutes.get("/userLogin", (req, res) => {
   res.render("login.ejs", {
     title: "Login",

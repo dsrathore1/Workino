@@ -29,5 +29,6 @@ export async function handleUserLogin(req, res) {
   }
 
   const sessionId = uuid();
+  
   return res.redirect("/");
 }

@@ -16,7 +16,8 @@ const HomePage = () => {
     <View style={styled.mainContainer}>
       <Stack.Screen
         options={{
-          title: "Welcome",
+          title: "🌿WELCOME🌿",
+          headerBackVisible: false,
           headerRight: () => (
             <Button
               onPress={() => {
@@ -30,7 +31,7 @@ const HomePage = () => {
                     {
                       text: "Yes",
                       onPress: () => {
-                        router.push("/help")
+                        router.push("/help");
                       },
                     },
                   ],
@@ -47,7 +48,7 @@ const HomePage = () => {
       />
       <SafeAreaView style={styled.container}>
         <ScrollView>
-          <Yard help={"Yard"} />
+          <Yard help={"Yards/Gardens"} />
           {/* <Home help={"Home"} /> */}
           {/* <Delivery help={"Delivery (Upcoming Service...)"} /> */}
         </ScrollView>

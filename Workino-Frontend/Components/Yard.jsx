@@ -25,7 +25,9 @@ const Yard = ({ help }) => {
   const router = useRouter();
   return (
     <>
-      <Text style={styled.heading}>Select help for your {help}</Text>
+      <Text className="uppercase" style={styled.heading}>
+        Avialable Services
+      </Text>
       <View style={styled.mainContainer} horizontal={true}>
         <Pressable
           onPress={() =>

@@ -121,6 +121,8 @@ const Form = () => {
           <View style={styled.inputField}>
             <Text className="text-[16px] pl-4">Address / पता</Text>
             <TextInput
+              numberOfLines={5}
+              multiline={true}
               style={styled.input}
               placeholder="Staff Quarter, No. 13 "
               value={add}

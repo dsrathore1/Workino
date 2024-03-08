@@ -26,7 +26,7 @@ const Planting = () => {
           <View className="w-full h-full flex justify-start items-center">
             <ImageBackground
               source={planting}
-              className="h-[40%] w-[95%] my-5 rounded-xl"
+              className="h-[30%] w-[95%] my-5 rounded-xl"
             />
             <View className="border-[#eeeeee3a] border-t-2 h-full w-full">
               <Text className="text-white text-left p-2 text-3xl">Details</Text>
@@ -65,9 +65,9 @@ const Planting = () => {
                       params: { Form: "Planting" },
                     });
                   }}
-                  className="border-2 border-[#4F6F52] flex justify-center items-center rounded-md h-full"
+                  className="border-2 border-[#4F6F52] flex justify-center items-center rounded-md h-full w-full"
                 >
-                  <Text className="text-xl px-16 text-white font-bold">
+                  <Text className="text-xl px-16 text-white font-bold uppercase">
                     Book Now
                   </Text>
                 </Pressable>

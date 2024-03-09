@@ -124,7 +124,7 @@ const Form = () => {
               numberOfLines={5}
               multiline={true}
               style={styled.input}
-              placeholder="Staff Quarter, No. 13 "
+              placeholder="Staff Quarter, No. 13"
               value={add}
               onChangeText={(text) => {
                 setAdd(text);
